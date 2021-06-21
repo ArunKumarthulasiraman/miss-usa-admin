@@ -1,12 +1,14 @@
 import React from "react";
 import "./styles.css";
 
+import Login from './Login';
+
 interface Props {}
 
 const AccountHome = (props: Props) => {
   return (
     <div className="account-main">
-      <h1>Account Home Page</h1>
+      <Login />
     </div>
   );
 };
