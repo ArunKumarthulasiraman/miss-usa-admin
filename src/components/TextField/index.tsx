@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FormControl,
   Input,
@@ -7,52 +7,42 @@ import {
   InputLabel,
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
-
-interface State {
-  password: string;
-  showPassword: boolean;
-}
+import styled from "styled-components";
 
 interface Props {
   name: string;
+  value: string;
   placeholder: string;
   label: string;
   type?: string;
+  onChange: any;
 }
 
 const TextField = (props: Props) => {
-  const { name, placeholder, label, type } = props;
+  const { name, value, placeholder, label, type, onChange } = props;
+  //   console.log(props);
 
-  const [values, setValues] = React.useState<State>({
-    password: "",
-    showPassword: false,
-  });
+  const [fieldType, setType] = useState<string>(type || "text");
+  const [values, setValues] = useState<string>(value || "");
 
-  const handleChange =
-    (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    !!onChange && onChange(event);
+    setValues(event.target.value);
   };
 
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
+  const toggleType = () => {
+    setType((prev) => (prev === "text" ? "password" : "text"));
   };
 
   const suffixElement = () => {
-    if (type === "password") {
+    if (type?.toLocaleLowerCase() === "password") {
       return (
         <InputAdornment position="end">
           <IconButton
             aria-label="toggle password visibility"
-            onClick={handleClickShowPassword}
-            onMouseDown={handleMouseDownPassword}
+            onClick={toggleType}
           >
-            {values.showPassword ? <Visibility /> : <VisibilityOff />}
+            {fieldType === "text" ? <Visibility /> : <VisibilityOff />}
           </IconButton>
         </InputAdornment>
       );
@@ -61,13 +51,14 @@ const TextField = (props: Props) => {
 
   return (
     <FormControl>
-      <InputLabel htmlFor="standard-adornment-password">{label}</InputLabel>
-      <Input
-        id="standard-adornment-password"
+      <InputLabel htmlFor={name}>{label}</InputLabel>
+      <StyledInput
+        autoComplete="off"
+        id={name}
         name={name}
-        type={values.showPassword ? "text" : "password"}
-        value={values.password}
-        onChange={handleChange("password")}
+        type={fieldType}
+        value={values}
+        onChange={handleChange}
         placeholder={placeholder}
         endAdornment={suffixElement()}
       />
@@ -76,3 +67,10 @@ const TextField = (props: Props) => {
 };
 
 export default TextField;
+
+// styled
+const StyledInput = styled(Input)`
+  .MuiInputBase-input {
+    color: white;
+  }
+`;

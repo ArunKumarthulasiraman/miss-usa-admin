@@ -12,12 +12,12 @@ interface Props {
 
 const FormTextField = (props: Props) => {
   const { name, label, placeholder, rules, type, ...otherProps } = props;
+  //   console.log(props);
   return (
     <Controller
       render={({ field }) => (
         <TextField
           {...field}
-          name={name}
           label={label}
           type={type}
           placeholder={placeholder}
@@ -25,6 +25,7 @@ const FormTextField = (props: Props) => {
       )}
       name={name}
       rules={rules}
+      defaultValue=""
       {...otherProps}
     />
   );
