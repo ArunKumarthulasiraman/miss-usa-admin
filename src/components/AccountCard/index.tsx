@@ -6,12 +6,13 @@ import logo from "../../assets/svg/Logo.svg";
 
 interface Props {
   children: any;
+  margin?: string;
 }
 
 const AccountCard = (props: Props) => {
-  const { children } = props;
+  const { children, margin } = props;
   return (
-    <CardMain>
+    <CardMain margin={margin}>
       <Logo>
         <img src={logo} alt="logo" />
       </Logo>

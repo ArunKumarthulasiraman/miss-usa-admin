@@ -1,13 +1,17 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import Theme from '../styles/theme';
 
 import AccountHome from "../views/Account";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#E78282",
+      main: Theme.colors.primary,
     },
+    secondary:{
+      main: Theme.colors.secondary
+    }
   },
   typography: {
     fontFamily: "Montserrat, sans-serif",

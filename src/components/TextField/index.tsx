@@ -16,11 +16,11 @@ interface Props {
   label: string;
   type?: string;
   onChange: any;
+  error: string;
 }
 
 const TextField = (props: Props) => {
-  const { name, value, placeholder, label, type, onChange } = props;
-  //   console.log(props);
+  const { name, value, placeholder, label, type, onChange, error } = props;
 
   const [fieldType, setType] = useState<string>(type || "text");
   const [values, setValues] = useState<string>(value || "");
@@ -41,6 +41,8 @@ const TextField = (props: Props) => {
           <IconButton
             aria-label="toggle password visibility"
             onClick={toggleType}
+            edge="end"
+            color="secondary"
           >
             {fieldType === "text" ? <Visibility /> : <VisibilityOff />}
           </IconButton>
@@ -50,27 +52,61 @@ const TextField = (props: Props) => {
   };
 
   return (
-    <FormControl>
-      <InputLabel htmlFor={name}>{label}</InputLabel>
-      <StyledInput
-        autoComplete="off"
-        id={name}
-        name={name}
-        type={fieldType}
-        value={values}
-        onChange={handleChange}
-        placeholder={placeholder}
-        endAdornment={suffixElement()}
-      />
-    </FormControl>
+    <>
+      <FormControl variant="standard" size="small">
+        <StyledInputLabel htmlFor={name} color="secondary" shrink={true}>
+          {label}
+        </StyledInputLabel>
+        <StyledInput
+          autoComplete="off"
+          fullWidth={true}
+          color="secondary"
+          id={name}
+          name={name}
+          type={fieldType}
+          value={values}
+          onChange={handleChange}
+          placeholder={placeholder}
+          endAdornment={suffixElement()}
+        />
+      </FormControl>
+      {!!error && <HelperText>{error}</HelperText>}
+    </>
   );
 };
 
 export default TextField;
 
 // styled
-const StyledInput = styled(Input)`
-  .MuiInputBase-input {
+const StyledInputLabel = styled(InputLabel)`
+  && {
     color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
   }
+`;
+const StyledInput = styled(Input)`
+  && {
+    width: 280px;
+    color: white;
+    box-sizing: border-box;
+    padding-top: 5px;
+    &::before {
+      color: white;
+      border-bottom-color: white;
+    }
+    &::after {
+      border-bottom-color: white;
+    }
+  }
+`;
+
+const HelperText = styled.div`
+  ::before {
+    display: inline;
+    content: "⚠ ";
+  }
+  color: "black";
+  font-size: small;
+  font-weight: bold;
 `;

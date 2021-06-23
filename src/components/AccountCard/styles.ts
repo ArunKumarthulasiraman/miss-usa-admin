@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-export const CardMain = styled.div`
+interface CardMainProps {
+  margin?: string;
+}
+
+export const CardMain = styled.div<CardMainProps>`
   width: 400px;
   padding: 20px;
-  /* height: 450px; */
+  /* margin: ${(props) => props.margin} auto; */
   background: rgba(225, 178, 172, 0.8);
   border-radius: 20px;
 `;

@@ -4,9 +4,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import AccountCard from "../../../components/AccountCard";
 import FormTextField from "../../../components/FormTextField";
 
-import { SubmitButton } from "../../../styles/styled/SubmitButton";
+import { Button } from "../../../styles/styled/Button";
 
-import { MainContainer, Title, Form, FieldWrap } from "./style";
+import { MainContainer, Title, FieldWrap, ForgotPasswordLink } from "./style";
 
 interface Props {}
 
@@ -22,13 +22,16 @@ const Login: React.FC<{}> = (props: Props) => {
     formState: { errors },
   } = useForm<FormInput>();
 
-  const otherProps = { control, error: errors };
-
-  console.log("error : ", errors);
+  //   console.log("error : ", errors);
+  const validate = {
+    email: "Invalid email",
+    password: "password must be alphanumeric",
+    passLength: "Required password length 6 to 15",
+  };
 
   const onSubmit: SubmitHandler<FormInput> = (data: FormInput) => {
-    console.log("Submitted");
     console.log(data);
+    alert(JSON.stringify(data));
   };
   return (
     <MainContainer>
@@ -39,17 +42,16 @@ const Login: React.FC<{}> = (props: Props) => {
             <FormTextField
               name="email"
               label="Email"
-              placeholder="abc@gmail.com"
+              placeholder="admin123@gmail.com"
               rules={{
-                required: "Please enter your email",
+                required: "please enter your email",
                 pattern: {
                   value: /$^|.+@.+../,
-                  message: "Invalid email",
+                  message: validate.email,
                 },
               }}
-              {...(errors.email && errors.email.message)}
-              hasValidation
-              {...otherProps}
+              control={control}
+              error={errors}
             />
           </FieldWrap>
           <FieldWrap>
@@ -59,25 +61,30 @@ const Login: React.FC<{}> = (props: Props) => {
               type="password"
               placeholder="*********"
               rules={{
-                required: "Please enter password",
+                required: "please enter your password",
                 minLength: {
                   value: 6,
-                  messaage: "Password must contain 6 to 10 characters",
+                  message: validate.passLength,
                 },
                 maxLength: {
-                  value: 10,
-                  messaage: "Password must contain 6 to 10 characters",
+                  value: 15,
+                  message: validate.passLength,
                 },
                 pattern: {
-                  value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,10}$/,
-                  message: "Invalid password",
+                  value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,15}$/,
+                  message: validate.password,
                 },
               }}
-              {...otherProps}
+              control={control}
+              error={errors}
             />
           </FieldWrap>
+
           <FieldWrap>
-            <SubmitButton type="submit">Log In</SubmitButton>
+            <Button type="submit">Log In</Button>
+          </FieldWrap>
+          <FieldWrap>
+            <ForgotPasswordLink href="">Forgot Password ?</ForgotPasswordLink>
           </FieldWrap>
         </form>
       </AccountCard>
