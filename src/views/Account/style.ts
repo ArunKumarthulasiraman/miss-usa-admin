@@ -20,9 +20,13 @@ export const FieldWrap = styled.div`
   padding: 10px 0px;
 `;
 
-export const ForgotPasswordLink = styled.a`
+export const StyledLink = styled.div`
   display: block;
   text-decoration: none;
   color: black;
   text-align: center;
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
 `;

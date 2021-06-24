@@ -11,11 +11,11 @@ import { MainContainer, Title, FieldWrap, StyledLink } from "../style";
 interface Props {}
 
 interface FormInput {
-  email: string;
-  password: string;
+  newPassword: string;
+  confirmPassword: string;
 }
 
-const Login: React.FC = (props: Props) => {
+const ResetPassword: React.FC = (props: Props) => {
   const history = useHistory();
 
   const {
@@ -24,45 +24,30 @@ const Login: React.FC = (props: Props) => {
     formState: { errors },
   } = useForm<FormInput>();
 
-  // console.log("error : ", errors);
   const validate = {
-    email: "Invalid email",
     password: "password must be alphanumeric",
     passLength: "Required password length 6 to 15",
   };
 
   const onSubmit: SubmitHandler<FormInput> = (data: FormInput) => {
-    console.log(data);
-    alert(JSON.stringify(data));
+    if (data.newPassword === data.confirmPassword) {
+      console.log(data);
+    } else {
+      alert("Password must be same");
+    }
   };
-
-  const gotoForgotPassword = () => history.push("/forgot_password");
+  
+  const gotoLogin = () => history.push("/");
 
   return (
     <MainContainer>
-      <Title>SIGN IN</Title>
+      <Title>CHANGE PASSWORD</Title>
       <AccountCard>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldWrap>
             <FormTextField
-              name="email"
-              label="Email"
-              placeholder="admin123@gmail.com"
-              rules={{
-                required: "please enter your email",
-                pattern: {
-                  value: /$^|.+@.+../,
-                  message: validate.email,
-                },
-              }}
-              control={control}
-              error={errors}
-            />
-          </FieldWrap>
-          <FieldWrap>
-            <FormTextField
-              name="password"
-              label="Password"
+              name="newPassword"
+              label="New Password"
               type="password"
               placeholder="*********"
               rules={{
@@ -86,12 +71,37 @@ const Login: React.FC = (props: Props) => {
           </FieldWrap>
 
           <FieldWrap>
-            <Button type="submit">Log In</Button>
+            <FormTextField
+              name="confirmPassword"
+              label="Confirm Password"
+              type="password"
+              placeholder="*********"
+              rules={{
+                required: "please enter your password",
+                minLength: {
+                  value: 6,
+                  message: validate.passLength,
+                },
+                maxLength: {
+                  value: 15,
+                  message: validate.passLength,
+                },
+                pattern: {
+                  value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,15}$/,
+                  message: validate.password,
+                },
+              }}
+              control={control}
+              error={errors}
+            />
           </FieldWrap>
+
           <FieldWrap>
-            <StyledLink onClick={gotoForgotPassword}>
-              Forgot Password ?
-            </StyledLink>
+            <Button type="submit">Submit</Button>
+          </FieldWrap>
+
+          <FieldWrap>
+            <StyledLink onClick={gotoLogin}>Have an Account ?</StyledLink>
           </FieldWrap>
         </form>
       </AccountCard>
@@ -99,4 +109,4 @@ const Login: React.FC = (props: Props) => {
   );
 };
 
-export default Login;
+export default ResetPassword;

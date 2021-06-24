@@ -1,27 +1,31 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import Theme from '../styles/theme';
+import { BrowserRouter } from "react-router-dom";
 
-import AccountHome from "../views/Account";
+import Theme from "../styles/theme";
+import { MainRoute } from "../router/routes";
+import RouteMapper from "../router/RouteMapper";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
       main: Theme.colors.primary,
     },
-    secondary:{
-      main: Theme.colors.secondary
-    }
+    secondary: {
+      main: Theme.colors.secondary,
+    },
   },
   typography: {
     fontFamily: "Montserrat, sans-serif",
   },
 });
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <AccountHome />
+      <BrowserRouter>
+        <RouteMapper data={MainRoute} />
+      </BrowserRouter>
     </ThemeProvider>
   );
 };
