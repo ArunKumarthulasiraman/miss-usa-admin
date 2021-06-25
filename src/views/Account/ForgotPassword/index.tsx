@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+
+import OTPBOX from "./OTP";
 
 import AccountCard from "../../../components/AccountCard";
 import FormTextField from "../../../components/FormTextField";
@@ -15,6 +17,7 @@ interface FormInput {
 }
 
 const ForgotPassword: React.FC = (props: Props) => {
+  const [isOTP, setIsOTP] = useState(false);
   const history = useHistory();
 
   const {
@@ -25,7 +28,7 @@ const ForgotPassword: React.FC = (props: Props) => {
 
   const onSubmit: SubmitHandler<FormInput> = (data: FormInput) => {
     console.log(data);
-    history.push("/reset_password");
+    setIsOTP(true);
   };
 
   const gotoLogin = () => history.push("/");
@@ -56,6 +59,12 @@ const ForgotPassword: React.FC = (props: Props) => {
             <Button type="submit">Send</Button>
           </FieldWrap>
 
+          {isOTP && (
+            <FieldWrap>
+              <OTPBOX />
+            </FieldWrap>
+          )}
+          
           <FieldWrap>
             <StyledLink onClick={gotoLogin}>Have an Account ?</StyledLink>
           </FieldWrap>

@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "./styles.css";
 
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
+
+import { AccountMain } from "./style";
 
 interface Props {}
 
@@ -25,7 +26,7 @@ const AccountHome: React.FC = (props: Props) => {
         return <Login />;
     }
   };
-  return <div className="account-main">{LoadPage(screen)}</div>;
+  return <AccountMain>{LoadPage(screen)}</AccountMain>;
 };
 
 export default AccountHome;

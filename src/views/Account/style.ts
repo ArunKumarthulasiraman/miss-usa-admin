@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import AccountBg from "../../assets/images/AccountBg.png";
+
+export const AccountMain = styled.div`
+  background: url(${AccountBg}) no-repeat;
+  background-size: cover;
+  height: 100vh;
+`;
 
 export const MainContainer = styled.div`
   height: 100vh;
@@ -10,7 +17,7 @@ export const MainContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 2.3rem;
   color: #ffffff;
 `;
 
