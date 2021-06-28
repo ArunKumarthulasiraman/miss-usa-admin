@@ -21,6 +21,14 @@ export const MainRoute = [
     },
   },
   {
+    name: "OTP Verification",
+    props: {
+      path: CommonRoute.account,
+      component: Account,
+      noAuth: true,
+    },
+  },
+  {
     name: "Reset Password",
     props: {
       path: CommonRoute.account,

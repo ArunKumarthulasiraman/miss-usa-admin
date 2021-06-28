@@ -7,7 +7,7 @@ import FormTextField from "../../../components/FormTextField";
 import SnackBar from "../../../components/SnackBar";
 import { Button } from "../../../styles/styled/Button";
 
-import { MainContainer, Title, FieldWrap, StyledLink } from "../style";
+import { MainContainer, Title, FieldWrap } from "../style";
 
 interface Props {}
 
@@ -114,10 +114,6 @@ const ResetPassword: React.FC = (props: Props) => {
             <FieldWrap>
               <Button type="submit">Submit</Button>
             </FieldWrap>
-
-            <FieldWrap>
-              <StyledLink onClick={gotoLogin}>Have an Account ?</StyledLink>
-            </FieldWrap>
           </form>
         </AccountCard>
       </MainContainer>
@@ -133,7 +129,7 @@ const ResetPassword: React.FC = (props: Props) => {
         <SnackBar
           open={isError}
           severity="warning"
-          message="Password must be same !!"
+          message="Passwords must be same !!"
           onClose={handleClose}
         />
       )}
