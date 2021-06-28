@@ -1,5 +1,6 @@
 import { CommonRoute } from "../config/routes";
 import Account from "../views/Account";
+import Dashboard from "../views/Dashboard";
 
 export const MainRoute = [
   {
@@ -25,6 +26,14 @@ export const MainRoute = [
       path: CommonRoute.account,
       component: Account,
       noAuth: true,
+    },
+  },
+  {
+    name: "Dashboard Main",
+    props: {
+      path: CommonRoute.dashboard.default,
+      component: Dashboard,
+      exact: true,
     },
   },
 ];

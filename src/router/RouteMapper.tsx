@@ -25,10 +25,11 @@ const RouteMapper = (props: Props) => {
       {data
         .filter((item) => !!item?.props)
         .map((item, index) => {
-          const { component: Component, ...rest } = item?.props;
+          const { component: Component, exact, ...rest } = item?.props;
           return HasToken ? (
             <Route
               key={index}
+              exact={exact}
               {...rest}
               render={(props: object) => <Component {...props} />}
             />
