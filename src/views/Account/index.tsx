@@ -6,7 +6,7 @@ import ForgotPassword from "./ForgotPassword";
 import OTPVerification from "./OtpVerification";
 import ResetPassword from "./ResetPassword";
 
-import Dashboard from "../Dashboard";
+// import Dashboard from "../Dashboard";
 
 import { AccountMain } from "./style";
 
@@ -28,7 +28,7 @@ const AccountHome: React.FC = (props: Props) => {
       case "reset_password":
         return <ResetPassword />;
       default:
-        return <Dashboard />;
+        return <Login />;
     }
   };
   return <AccountMain>{LoadPage(screen)}</AccountMain>;

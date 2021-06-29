@@ -45,7 +45,7 @@ const Login: React.FC = (props: Props) => {
 
   const handleDlgClose = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === "clickaway") return;
-    history.push(CommonRoute.dashboard.default);
+    history.push(CommonRoute.dashboard.main);
     setResponse(false);
   };
 

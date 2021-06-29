@@ -9,7 +9,7 @@ interface Props {
       icon: string;
       path: string;
       component: React.FC<{}>;
-      exact: boolean;
+      exact?: boolean;
     };
   }[];
 }
