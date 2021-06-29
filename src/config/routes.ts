@@ -4,11 +4,11 @@ export const CommonRoute = {
   dashboard: {
     default: "/Dashboard",
     main: "/Dashboard/Main",
-    pageantManagement: "/Dashboard/pageantManagement",
-    eventsManagement: "/Dashboard/eventsManagement",
-    manageSubscription: "/Dashboard/manageSubscription",
-    manageContestent: "/Dashboard/manageContestent",
-    newsManagement: "/Dashboard/newsManagement",
-    prevYearManagement: "/Dashboard/prevYearManagement",
+    pageantManagement: "/Dashboard/PageantManagement",
+    eventsManagement: "/Dashboard/EventsManagement",
+    manageSubscription: "/Dashboard/ManageSubscription",
+    manageContestent: "/Dashboard/ManageContestent",
+    newsManagement: "/Dashboard/NewsManagement",
+    prevYearManagement: "/Dashboard/PrevYearManagement",
   },
 };

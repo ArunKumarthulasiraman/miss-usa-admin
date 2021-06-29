@@ -6,6 +6,7 @@ export const MainContainer = styled(Grid)`
   height: 100vh;
   overflow: hidden;
 `;
+
 export const SideMenu = styled(Grid)`
   /* border: 1px solid black; */
   display: flex;
@@ -13,9 +14,10 @@ export const SideMenu = styled(Grid)`
   justify-content: space-between;
   align-items: center;
   && {
-    margin: 20px auto;
+    margin: 2% auto;
   }
 `;
+
 export const Logo = styled.div`
   /* border: 1px solid red; */
   align-self: center;
@@ -24,20 +26,33 @@ export const Logo = styled.div`
     max-height: 100px;
   }
 `;
-export const MainContent = styled(Grid)`
+
+export const NavItems = styled.div`
   /* border: 1px solid black; */
+  flex: 1;
+  margin-top: 40px;
+`;
+
+export const LogoutSec = styled.div`
+  margin-bottom: 20px;
+  color: white;
+`;
+
+export const MainContent = styled(Grid)`
+  border: 10px solid #e1b2ac;
   background: white;
-  border-radius: 30px;
+  border-radius: 20px;
   && {
-    /* margin: 10px; */
     padding: 20px;
   }
 `;
+
 export const AppHeader = styled(Grid)`
   /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
 `;
+
 export const AppMain = styled(Grid)`
   /* border: 1px solid black; */
 `;

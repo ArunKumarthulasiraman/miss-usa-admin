@@ -10,8 +10,9 @@ import PrevYearManagement from "./PrevYearManagement";
 
 export const DashboardRoutes = [
   {
-    name: "Dashboard Main",
+    name: "Dashboard",
     props: {
+      icon: "Icon_Dashboard",
       path: CommonRoute.dashboard.main,
       component: MainDashboad,
       exact: true,
@@ -20,6 +21,7 @@ export const DashboardRoutes = [
   {
     name: "Pageant Management",
     props: {
+      icon: "Icon_PageantManage",
       path: CommonRoute.dashboard.pageantManagement,
       component: PageantManagement,
       exact: true,
@@ -28,6 +30,7 @@ export const DashboardRoutes = [
   {
     name: "Events Management",
     props: {
+      icon: "Icon_EventManage",
       path: CommonRoute.dashboard.eventsManagement,
       component: EventsManagement,
       exact: true,
@@ -36,7 +39,8 @@ export const DashboardRoutes = [
   {
     name: "Manage Subscription",
     props: {
-      path: CommonRoute.dashboard.eventsManagement,
+      icon: "Icon_Subscription",
+      path: CommonRoute.dashboard.manageSubscription,
       component: ManageSubscription,
       exact: true,
     },
@@ -44,7 +48,8 @@ export const DashboardRoutes = [
   {
     name: "Manage Contestant",
     props: {
-      path: CommonRoute.dashboard.eventsManagement,
+      icon: "Icon_ContestantManage",
+      path: CommonRoute.dashboard.manageContestent,
       component: ManageContestant,
       exact: true,
     },
@@ -52,7 +57,8 @@ export const DashboardRoutes = [
   {
     name: "News Management",
     props: {
-      path: CommonRoute.dashboard.eventsManagement,
+      icon: "Icon_NewsManage",
+      path: CommonRoute.dashboard.newsManagement,
       component: NewsManagement,
       exact: true,
     },
@@ -60,7 +66,8 @@ export const DashboardRoutes = [
   {
     name: "PrevYear Management",
     props: {
-      path: CommonRoute.dashboard.eventsManagement,
+      icon: "Icon_PrevYear",
+      path: CommonRoute.dashboard.prevYearManagement,
       component: PrevYearManagement,
       exact: true,
     },
