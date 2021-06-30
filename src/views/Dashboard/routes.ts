@@ -17,6 +17,11 @@ export const DashboardRoutes = [
       component: MainDashboad,
       exact: true,
     },
+    // redirection: {
+    //   path: CommonRoute.home,
+    //   exact: true,
+    //   to: CommonRoute.dashboard.main,
+    // },
   },
   {
     name: "Pageant Management",

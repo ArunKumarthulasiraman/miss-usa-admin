@@ -4,7 +4,8 @@ import axios, { AxiosResponse, AxiosError } from "axios";
 interface Props {}
 
 const usePost = (props: Props) => {
-  const token = "";
+  const token = "abcd";
+  const auth = "Bearer ".concat(token);
   const [postData, setPostData] = useState<object>({
     loading: false,
     response: undefined,
@@ -17,7 +18,7 @@ const usePost = (props: Props) => {
       .post(
         url,
         {
-          Headers: { Authorization: token },
+          Headers: { Authorization: auth },
         },
         data
       )

@@ -28,7 +28,7 @@ const AccountHome: React.FC = (props: Props) => {
       case "reset_password":
         return <ResetPassword />;
       default:
-        return <Login />;
+        return <Dashboard />;
     }
   };
   return <AccountMain>{LoadPage(screen)}</AccountMain>;

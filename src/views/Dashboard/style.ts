@@ -40,8 +40,9 @@ export const LogoutSec = styled.div`
 
 export const MainContent = styled(Grid)`
   border: 10px solid #e1b2ac;
+  border-left: none;
   background: white;
-  border-radius: 20px;
+  border-radius: 25px;
   && {
     padding: 20px;
   }

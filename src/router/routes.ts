@@ -41,7 +41,7 @@ export const MainRoute = [
     props: {
       path: CommonRoute.dashboard.default,
       component: Dashboard,
-      exact: true,
+      // exact: true,
     },
   },
 ];

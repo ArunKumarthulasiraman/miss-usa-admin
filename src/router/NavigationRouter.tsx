@@ -59,10 +59,13 @@ export const NavItemWrapper = styled.div<SelectedType>`
   ${({ isSelected }) =>
     isSelected &&
     css`
-      /* width: 100%; */
+      width: 100%;
+      height: 40px;
       background: white;
       color: #e1b2ac;
       border-radius: 50px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
     `}
 
   &:hover {
