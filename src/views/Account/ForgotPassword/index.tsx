@@ -38,6 +38,7 @@ const ForgotPassword: React.FC = (props: Props) => {
               name="email"
               label="Email"
               placeholder="admin123@gmail.com"
+              autoFocus
               rules={{
                 required: "please enter your email",
                 pattern: {

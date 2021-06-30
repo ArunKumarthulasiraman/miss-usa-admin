@@ -6,7 +6,7 @@ import ForgotPassword from "./ForgotPassword";
 import OTPVerification from "./OtpVerification";
 import ResetPassword from "./ResetPassword";
 
-// import Dashboard from "../Dashboard";
+import Dashboard from "../Dashboard";
 
 import { AccountMain } from "./style";
 

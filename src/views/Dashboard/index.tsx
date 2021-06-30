@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
+import { useLocation } from "react-router-dom";
 
 import RouteMapper from "../../router/RouteMapper";
 import NavigationRouter from "../../router/NavigationRouter";
@@ -23,6 +24,8 @@ interface Props {}
 
 const Dashboard: React.FC = (props: Props) => {
   console.log("---------Dash");
+  const location = useLocation();
+  console.log("..", location);
   return (
     <MainContainer container>
       <SideMenu item lg={2} md={2} sm={12} xs={12}>

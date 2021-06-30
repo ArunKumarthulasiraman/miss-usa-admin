@@ -13,6 +13,7 @@ interface Props {
   name: string;
   value: string;
   placeholder: string;
+  autoFocus?: boolean;
   label: string;
   type?: string;
   onChange: any;
@@ -20,7 +21,8 @@ interface Props {
 }
 
 const TextField = (props: Props) => {
-  const { name, value, placeholder, label, type, onChange, error } = props;
+  const { name, value, placeholder, autoFocus, label, type, onChange, error } =
+    props;
 
   const [fieldType, setType] = useState<string>(type || "text");
   const [values, setValues] = useState<string>(value || "");
@@ -59,6 +61,7 @@ const TextField = (props: Props) => {
         </StyledInputLabel>
         <StyledInput
           autoComplete="off"
+          autoFocus={autoFocus}
           fullWidth={true}
           color="secondary"
           id={name}

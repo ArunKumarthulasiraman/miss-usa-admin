@@ -5,6 +5,7 @@ interface Props {
   name: string;
   label: string;
   placeholder: string;
+  autoFocus?: boolean;
   type?: string;
   rules: object;
   control: any;
@@ -12,7 +13,8 @@ interface Props {
 }
 
 const FormTextField = (props: Props) => {
-  const { name, label, placeholder, rules, type, error, control } = props;
+  const { name, label, placeholder, autoFocus, rules, type, error, control } =
+    props;
   return (
     <Controller
       name={name}
@@ -23,6 +25,7 @@ const FormTextField = (props: Props) => {
           label={label}
           type={type}
           placeholder={placeholder}
+          autoFocus={autoFocus}
           error={error && error[name] && error[name]?.message}
         />
       )}

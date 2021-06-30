@@ -29,6 +29,7 @@ const RouteMapper = (props: Props) => {
           return HasToken ? (
             <Route
               key={index}
+              exact={exact}
               {...rest}
               render={(props: object) => <Component {...props} />}
             />

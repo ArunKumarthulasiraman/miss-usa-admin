@@ -65,6 +65,7 @@ const ResetPassword: React.FC = (props: Props) => {
                 label="New Password"
                 type="password"
                 placeholder="*********"
+                autoFocus
                 rules={{
                   required: "please enter your password",
                   minLength: {

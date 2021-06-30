@@ -29,7 +29,11 @@ const OTPBOX = (props: Props) => {
 
   const handleVerify = () => {
     // alert(`Entered OTP : ${otp.join("")}`);
-    setIsVerified(true);
+    if (otp.join("") !== "") {
+      setIsVerified(true);
+    } else {
+      alert("Please enter OTP");
+    }
   };
 
   const handleClose = (reason?: string) => {
@@ -113,4 +117,3 @@ const Input = styled.input`
   border: none;
   border-bottom: 1px solid white;
 `;
-
