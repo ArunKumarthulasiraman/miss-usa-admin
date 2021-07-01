@@ -1,10 +1,11 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import RouteMapper from "../../router/RouteMapper";
 import NavigationRouter from "../../router/NavigationRouter";
 import { DashboardRoutes } from "./routes";
+import { CommonRoute } from "../../config/routes";
 import logo from "../../assets/svg/Logo.svg";
 import logout from "../../assets/svg/Icon_Logout.svg";
 import { SvgIcon } from "../../router/NavigationRouter";
@@ -23,9 +24,11 @@ import {
 interface Props {}
 
 const Dashboard: React.FC = (props: Props) => {
-  console.log("---------Dash");
-  const location = useLocation();
-  console.log("..", location);
+  const history = useHistory();
+
+  const handleLogout = () => {
+    history.push(CommonRoute.home);
+  };
   return (
     <MainContainer container>
       <SideMenu item lg={2} md={2} sm={12} xs={12}>
@@ -35,7 +38,7 @@ const Dashboard: React.FC = (props: Props) => {
         <NavItems>
           <NavigationRouter data={DashboardRoutes} />
         </NavItems>
-        <LogoutSec>
+        <LogoutSec onClick={handleLogout}>
           <SvgIcon src={logout} alt="icon" />
           <span>Log Out</span>
         </LogoutSec>

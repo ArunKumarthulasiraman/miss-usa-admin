@@ -6,6 +6,7 @@ import AccountCard from "../../../components/AccountCard";
 import FormTextField from "../../../components/FormTextField";
 import SnackBar from "../../../components/SnackBar";
 import { Button } from "../../../styles/styled/Button";
+import { CommonRoute } from "../../../config/routes";
 
 import { MainContainer, Title, FieldWrap } from "../style";
 
@@ -42,7 +43,7 @@ const ResetPassword: React.FC = (props: Props) => {
     }
   };
 
-  const gotoLogin = () => history.push("/");
+  const gotoLogin = () => history.push(CommonRoute.home);
 
   const handleClose = (reason?: string) => {
     if (reason === "clickaway") return;
